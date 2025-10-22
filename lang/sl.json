@@ -859,7 +859,8 @@
       "notes": "Opombe",
       "exchange_rate": "Menjalni tečaj",
       "address_information": "Podatki o naslovu",
-      "pdf_generation": "PDF Generation"
+      "pdf_generation": "PDF Generation",
+      "branding": "Branding"
     },
     "address_information": {
       "section_description": "  Informacije o naslovu lahko posodobite s spodnjim obrazcem."
@@ -908,6 +909,33 @@
       "from_mail": "Iz poštnega naslova",
       "encryption": "Šifriranje pošte",
       "mail_config_desc": "Spodaj je obrazec za konfiguracijo gonilnika e-pošte za pošiljanje e-poštnih sporočil iz aplikacije. Konfigurirate lahko tudi ponudnike tretjih oseb, kot so Sendgrid, SES itd."
+    },
+    "mail_servers": {
+      "title": "Mail Servers",
+      "description": "Configure company-specific outgoing mail servers.",
+      "add": "Add Mail Server",
+      "primary": "Use as primary server",
+      "label": "Label",
+      "server_label": "Mail Server {number}",
+      "empty": "No mail servers added yet.",
+      "limit_reached": "You can configure up to {count} mail servers for a company."
+    },
+    "branding": {
+      "title": "Branding",
+      "description": "Customize the colours used across the admin portal for this company.",
+      "primary_color_label": "Primary accent colour",
+      "primary_color_help": "Used for buttons, links, and gradients.",
+      "sidebar_background_label": "Sidebar background",
+      "sidebar_background_help": "Adjusts the navigation sidebar surface colour.",
+      "sidebar_text_label": "Sidebar text",
+      "sidebar_text_help": "Controls the base text and icon colour in the sidebar.",
+      "preview_title": "Preview",
+      "preview_description": "See how the selected colours work together before saving.",
+      "preview_header_caption": "Header gradient preview",
+      "preview_sidebar_caption": "Sidebar navigation preview",
+      "preview_active_link": "Active item",
+      "preview_inactive_link": "Inactive item",
+      "updated": "Branding settings updated successfully."
     },
     "pdf": {
       "title": "Nastavitev PDF",
@@ -1580,7 +1608,8 @@
     "at_least_one_ability": "Izberite vsaj eno dovoljenje.",
     "valid_driver_key": "Vnesite veljavni ključ {driver}.",
     "valid_exchange_rate": "Vnesite veljavni menjalni tečaj.",
-    "company_name_not_same": "Ime podjetja se mora ujemati z imenom."
+    "company_name_not_same": "Ime podjetja se mora ujemati z imenom.",
+    "hex_color": "Please enter a valid hex colour (e.g. #4A3DFF)."
   },
   "errors": {
     "starter_plan": "Ta funkcija je na voljo v načrtu Starter in naprej!",

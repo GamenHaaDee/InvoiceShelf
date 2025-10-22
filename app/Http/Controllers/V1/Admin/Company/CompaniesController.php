@@ -7,6 +7,7 @@ use App\Http\Requests\CompaniesRequest;
 use App\Http\Resources\CompanyResource;
 use App\Models\Company;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Silber\Bouncer\BouncerFacade;
 use Vinkla\Hashids\Facades\Hashids;
@@ -17,20 +18,34 @@ class CompaniesController extends Controller
     {
         $this->authorize('create company');
 
-        $user = $request->user();
+        $company = DB::transaction(function () use ($request) {
+            $user = $request->user();
 
-        $company = Company::create($request->getCompanyPayload());
-        $company->unique_hash = Hashids::connection(Company::class)->encode($company->id);
-        $company->save();
-        $company->setupDefaultData();
-        $user->companies()->attach($company->id);
-        $user->assign('super admin');
+            $company = Company::create($request->getCompanyPayload());
+            $company->unique_hash = Hashids::connection(Company::class)->encode($company->id);
+            $company->save();
+            $company->setupDefaultData();
+            $user->companies()->attach($company->id);
+            $user->assign('super admin');
 
-        if ($request->address) {
-            $company->address()->create($request->address);
-        }
+            if ($request->address) {
+                $company->address()->create($request->address);
+            }
 
-        return new CompanyResource($company);
+            $mailServers = $request->input('mail_servers', []);
+            if (! empty($mailServers)) {
+                $company->syncMailServers($mailServers);
+            }
+
+            $branding = $request->input('branding', []);
+            if (! empty($branding)) {
+                $company->applyBranding($branding);
+            }
+
+            return $company;
+        });
+
+        return new CompanyResource($company->load('mailServers'));
     }
 
     public function destroy(Request $request)

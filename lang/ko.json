@@ -593,7 +593,8 @@
       "file_disk": "파일 디스크",
       "custom_fields": "사용자 정의 필드",
       "payment_modes": "지불 모드",
-      "notes": "노트"
+      "notes": "노트",
+      "branding": "Branding"
     },
     "title": "설정",
     "setting": "설정 | 설정",
@@ -637,6 +638,33 @@
       "from_mail": "메일 주소에서",
       "encryption": "메일 암호화",
       "mail_config_desc": "다음은 앱에서 이메일을 보내기위한 이메일 드라이버 구성 양식입니다. Sendgrid, SES 등과 같은 타사 공급자를 구성 할 수도 있습니다."
+    },
+    "mail_servers": {
+      "title": "Mail Servers",
+      "description": "Configure company-specific outgoing mail servers.",
+      "add": "Add Mail Server",
+      "primary": "Use as primary server",
+      "label": "Label",
+      "server_label": "Mail Server {number}",
+      "empty": "No mail servers added yet.",
+      "limit_reached": "You can configure up to {count} mail servers for a company."
+    },
+    "branding": {
+      "title": "Branding",
+      "description": "Customize the colours used across the admin portal for this company.",
+      "primary_color_label": "Primary accent colour",
+      "primary_color_help": "Used for buttons, links, and gradients.",
+      "sidebar_background_label": "Sidebar background",
+      "sidebar_background_help": "Adjusts the navigation sidebar surface colour.",
+      "sidebar_text_label": "Sidebar text",
+      "sidebar_text_help": "Controls the base text and icon colour in the sidebar.",
+      "preview_title": "Preview",
+      "preview_description": "See how the selected colours work together before saving.",
+      "preview_header_caption": "Header gradient preview",
+      "preview_sidebar_caption": "Sidebar navigation preview",
+      "preview_active_link": "Active item",
+      "preview_inactive_link": "Inactive item",
+      "updated": "Branding settings updated successfully."
     },
     "pdf": {
       "title": "PDF 설정",
@@ -1114,7 +1142,8 @@
     "address_maxlength": "주소는 255자를 초과 할 수 없습니다.",
     "ref_number_maxlength": "참조 번호는 255자를 초과 할 수 없습니다.",
     "prefix_maxlength": "접두사는 5 자 이하 여야합니다.",
-    "something_went_wrong": "뭔가 잘못 됐어"
+    "something_went_wrong": "뭔가 잘못 됐어",
+    "hex_color": "Please enter a valid hex colour (e.g. #4A3DFF)."
   },
   "pdf_estimate_label": "견적",
   "pdf_estimate_number": "견적 번호",

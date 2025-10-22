@@ -40,7 +40,24 @@ export const useGlobalStore = defineStore({
             resolve(response)
           })
           .catch((err) => {
-            handleError(err)
+            if (err.response && err.response.status === 401) {
+              this.isAppLoaded = false
+
+              const company = data || this.companySlug
+              if (company) {
+                if (window?.router) {
+                  window.router.push({
+                    name: 'customer.login',
+                    params: { company },
+                  })
+                } else {
+                  window.location.href = `/${company}/customer/login`
+                }
+              }
+            } else {
+              handleError(err)
+            }
+
             reject(err)
           })
       })

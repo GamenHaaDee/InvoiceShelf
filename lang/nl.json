@@ -859,7 +859,8 @@
       "notes": "Opmerkingen",
       "exchange_rate": "Wisselkoers",
       "address_information": "Adresgegevens",
-      "pdf_generation": "PDF Generation"
+      "pdf_generation": "PDF Generation",
+      "branding": "Branding"
     },
     "address_information": {
       "section_description": "  U kunt uw adresgegevens bijwerken via het onderstaande formulier."
@@ -908,6 +909,33 @@
       "from_mail": "Afzender e-mailadres",
       "encryption": "E-mailversleuteling",
       "mail_config_desc": "Hieronder vindt u het formulier voor het configureren van het e-mailstuurprogramma voor het verzenden van e-mails vanuit de app. U kunt ook externe providers zoals Sendgrid, SES enz. Configureren."
+    },
+    "mail_servers": {
+      "title": "Mail Servers",
+      "description": "Configure company-specific outgoing mail servers.",
+      "add": "Add Mail Server",
+      "primary": "Use as primary server",
+      "label": "Label",
+      "server_label": "Mail Server {number}",
+      "empty": "No mail servers added yet.",
+      "limit_reached": "You can configure up to {count} mail servers for a company."
+    },
+    "branding": {
+      "title": "Branding",
+      "description": "Customize the colours used across the admin portal for this company.",
+      "primary_color_label": "Primary accent colour",
+      "primary_color_help": "Used for buttons, links, and gradients.",
+      "sidebar_background_label": "Sidebar background",
+      "sidebar_background_help": "Adjusts the navigation sidebar surface colour.",
+      "sidebar_text_label": "Sidebar text",
+      "sidebar_text_help": "Controls the base text and icon colour in the sidebar.",
+      "preview_title": "Preview",
+      "preview_description": "See how the selected colours work together before saving.",
+      "preview_header_caption": "Header gradient preview",
+      "preview_sidebar_caption": "Sidebar navigation preview",
+      "preview_active_link": "Active item",
+      "preview_inactive_link": "Inactive item",
+      "updated": "Branding settings updated successfully."
     },
     "pdf": {
       "title": "PDF-instelling",
@@ -1580,7 +1608,8 @@
     "at_least_one_ability": "Selecteer minstens één machtiging.",
     "valid_driver_key": "Voer een geldige {driver} sleutel in.",
     "valid_exchange_rate": "Voer a.u.b. een geldige wisselkoers in.",
-    "company_name_not_same": "Bedrijfsnaam moet overeenkomen met de opgegeven naam."
+    "company_name_not_same": "Bedrijfsnaam moet overeenkomen met de opgegeven naam.",
+    "hex_color": "Please enter a valid hex colour (e.g. #4A3DFF)."
   },
   "errors": {
     "starter_plan": "Deze functie is beschikbaar vanaf het Starter abonnement!",

@@ -859,7 +859,8 @@
       "notes": "Notizen",
       "exchange_rate": "Wechselkurs",
       "address_information": "Adressinformationen",
-      "pdf_generation": "PDF-Erzeugung"
+      "pdf_generation": "PDF-Erzeugung",
+      "branding": "Branding"
     },
     "address_information": {
       "section_description": "  Sie können Ihre Adressinformationen über das untenstehende Formular aktualisieren."
@@ -908,6 +909,33 @@
       "from_mail": "Von E-Mail-Adresse",
       "encryption": "E-Mail-Verschlüsselung",
       "mail_config_desc": "Unten finden Sie das Formular zum Konfigurieren des E-Mail-Treibers zum Senden von E-Mails über die App. Sie können auch Drittanbieter wie Sendgrid, SES usw. konfigurieren."
+    },
+    "mail_servers": {
+      "title": "Mail Servers",
+      "description": "Configure company-specific outgoing mail servers.",
+      "add": "Add Mail Server",
+      "primary": "Use as primary server",
+      "label": "Label",
+      "server_label": "Mail Server {number}",
+      "empty": "No mail servers added yet.",
+      "limit_reached": "You can configure up to {count} mail servers for a company."
+    },
+    "branding": {
+      "title": "Branding",
+      "description": "Customize the colours used across the admin portal for this company.",
+      "primary_color_label": "Primary accent colour",
+      "primary_color_help": "Used for buttons, links, and gradients.",
+      "sidebar_background_label": "Sidebar background",
+      "sidebar_background_help": "Adjusts the navigation sidebar surface colour.",
+      "sidebar_text_label": "Sidebar text",
+      "sidebar_text_help": "Controls the base text and icon colour in the sidebar.",
+      "preview_title": "Preview",
+      "preview_description": "See how the selected colours work together before saving.",
+      "preview_header_caption": "Header gradient preview",
+      "preview_sidebar_caption": "Sidebar navigation preview",
+      "preview_active_link": "Active item",
+      "preview_inactive_link": "Inactive item",
+      "updated": "Branding settings updated successfully."
     },
     "pdf": {
       "title": "PDF-Einstellung",
@@ -1580,7 +1608,8 @@
     "at_least_one_ability": "Bitte wählen Sie mindestens eine Berechtigung aus.",
     "valid_driver_key": "Bitte geben Sie einen gültigen {driver} Schlüssel ein.",
     "valid_exchange_rate": "Bitte geben Sie einen gültigen Wechselkurs ein.",
-    "company_name_not_same": "Name des Unternehmens muss mit dem angegebenen Namen übereinstimmen."
+    "company_name_not_same": "Name des Unternehmens muss mit dem angegebenen Namen übereinstimmen.",
+    "hex_color": "Please enter a valid hex colour (e.g. #4A3DFF)."
   },
   "errors": {
     "starter_plan": "Diese Funktion ist erst ab dem Starterplan verfügbar!",

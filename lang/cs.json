@@ -859,7 +859,8 @@
       "notes": "Poznámky",
       "exchange_rate": "Směnný kurz",
       "address_information": "Adresa",
-      "pdf_generation": "Generování PDF"
+      "pdf_generation": "Generování PDF",
+      "branding": "Branding"
     },
     "address_information": {
       "section_description": "  Adresu můžete aktualizovat pomocí formuláře níže."
@@ -908,6 +909,33 @@
       "from_mail": "Z e-mailové adresy",
       "encryption": "Šifrování e-mailu",
       "mail_config_desc": "Níže je uveden formulář pro konfiguraci e-mailového ovladače pro odesílání e-mailů z aplikace. Můžete také nakonfigurovat poskytovatele třetích stran, jako je Sendgrid, SES atd."
+    },
+    "mail_servers": {
+      "title": "Mail Servers",
+      "description": "Configure company-specific outgoing mail servers.",
+      "add": "Add Mail Server",
+      "primary": "Use as primary server",
+      "label": "Label",
+      "server_label": "Mail Server {number}",
+      "empty": "No mail servers added yet.",
+      "limit_reached": "You can configure up to {count} mail servers for a company."
+    },
+    "branding": {
+      "title": "Branding",
+      "description": "Customize the colours used across the admin portal for this company.",
+      "primary_color_label": "Primary accent colour",
+      "primary_color_help": "Used for buttons, links, and gradients.",
+      "sidebar_background_label": "Sidebar background",
+      "sidebar_background_help": "Adjusts the navigation sidebar surface colour.",
+      "sidebar_text_label": "Sidebar text",
+      "sidebar_text_help": "Controls the base text and icon colour in the sidebar.",
+      "preview_title": "Preview",
+      "preview_description": "See how the selected colours work together before saving.",
+      "preview_header_caption": "Header gradient preview",
+      "preview_sidebar_caption": "Sidebar navigation preview",
+      "preview_active_link": "Active item",
+      "preview_inactive_link": "Inactive item",
+      "updated": "Branding settings updated successfully."
     },
     "pdf": {
       "title": "Nastavení PDF",
@@ -1580,7 +1608,8 @@
     "at_least_one_ability": "Vyberte prosím alespoň jedno oprávnění.",
     "valid_driver_key": "Zadejte prosím platný {driver} klíč.",
     "valid_exchange_rate": "Zadejte prosím platný směnný kurz.",
-    "company_name_not_same": "Název společnosti se musí shodovat se zadaným názvem."
+    "company_name_not_same": "Název společnosti se musí shodovat se zadaným názvem.",
+    "hex_color": "Please enter a valid hex colour (e.g. #4A3DFF)."
   },
   "errors": {
     "starter_plan": "Tato funkce je k dispozici na Starter Plánu a dále!",

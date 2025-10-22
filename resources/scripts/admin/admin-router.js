@@ -29,6 +29,8 @@ const CompanyInfo = () =>
   import('@/scripts/admin/views/settings/CompanyInfoSettings.vue')
 const Preferences = () =>
   import('@/scripts/admin/views/settings/PreferencesSetting.vue')
+const BrandingSetting = () =>
+  import('@/scripts/admin/views/settings/BrandingSetting.vue')
 const Customization = () =>
   import(
     '@/scripts/admin/views/settings/customization/CustomizationSetting.vue'
@@ -250,6 +252,12 @@ export default [
             name: 'preferences',
             meta: { isOwner: true },
             component: Preferences,
+          },
+          {
+            path: 'branding',
+            name: 'branding',
+            meta: { isOwner: true },
+            component: BrandingSetting,
           },
           {
             path: 'customization',
