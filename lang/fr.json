@@ -909,6 +909,16 @@
       "encryption": "Chiffrement",
       "mail_config_desc": "Saisissez ici les paramètres d'envoi de votre boîte email, afin que l'application puisse envoyer des messages. Vous pouvez également utiliser un service tiers, comme Sendgrid par exemple."
     },
+    "mail_servers": {
+      "title": "Mail Servers",
+      "description": "Configure company-specific outgoing mail servers.",
+      "add": "Add Mail Server",
+      "primary": "Use as primary server",
+      "label": "Label",
+      "server_label": "Mail Server {number}",
+      "empty": "No mail servers added yet.",
+      "limit_reached": "You can configure up to {count} mail servers for a company."
+    },
     "pdf": {
       "title": "Paramètre PDF",
       "footer_text": "Pied de page",

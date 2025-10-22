@@ -18,6 +18,10 @@ class CompanyController extends Controller
     {
         $company = Company::find($request->header('company'));
 
+        if ($company) {
+            $company->load('mailServers');
+        }
+
         return new CompanyResource($company);
     }
 }

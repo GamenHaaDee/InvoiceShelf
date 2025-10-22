@@ -909,6 +909,16 @@
       "encryption": "Mail Encryption",
       "mail_config_desc": "Below is the form for Configuring Email driver for sending emails from the app. You can also configure third party providers like Sendgrid, SES etc."
     },
+    "mail_servers": {
+      "title": "Mail Servers",
+      "description": "Configure company-specific outgoing mail servers.",
+      "add": "Add Mail Server",
+      "primary": "Use as primary server",
+      "label": "Label",
+      "server_label": "Mail Server {number}",
+      "empty": "No mail servers added yet.",
+      "limit_reached": "You can configure up to {count} mail servers for a company."
+    },
     "pdf": {
       "title": "PDF nustatymai",
       "footer_text": "Poraštės tekstas",

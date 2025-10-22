@@ -909,6 +909,16 @@
       "encryption": "Mail Şifrelemesi",
       "mail_config_desc": "Uygulamadan E-posta göndermek için E-posta sürücüsünü yapılandırma formu aşağıdadır. Sendgrid, SES vb. gibi üçüncü taraf sağlayıcıları da yapılandırabilirsiniz."
     },
+    "mail_servers": {
+      "title": "Mail Servers",
+      "description": "Configure company-specific outgoing mail servers.",
+      "add": "Add Mail Server",
+      "primary": "Use as primary server",
+      "label": "Label",
+      "server_label": "Mail Server {number}",
+      "empty": "No mail servers added yet.",
+      "limit_reached": "You can configure up to {count} mail servers for a company."
+    },
     "pdf": {
       "title": "PDF Ayarları",
       "footer_text": "Altbilgi Metni",

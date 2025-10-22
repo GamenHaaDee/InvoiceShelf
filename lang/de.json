@@ -909,6 +909,16 @@
       "encryption": "E-Mail-Verschlüsselung",
       "mail_config_desc": "Unten finden Sie das Formular zum Konfigurieren des E-Mail-Treibers zum Senden von E-Mails über die App. Sie können auch Drittanbieter wie Sendgrid, SES usw. konfigurieren."
     },
+    "mail_servers": {
+      "title": "Mail Servers",
+      "description": "Configure company-specific outgoing mail servers.",
+      "add": "Add Mail Server",
+      "primary": "Use as primary server",
+      "label": "Label",
+      "server_label": "Mail Server {number}",
+      "empty": "No mail servers added yet.",
+      "limit_reached": "You can configure up to {count} mail servers for a company."
+    },
     "pdf": {
       "title": "PDF-Einstellung",
       "footer_text": "Fußzeile Text",

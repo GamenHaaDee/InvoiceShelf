@@ -96,6 +96,150 @@
             </BaseMultiselect>
           </BaseInputGroup>
         </BaseInputGrid>
+
+        <div class="pt-4 mt-6 border-t border-gray-200 space-y-4">
+          <div
+            class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
+          >
+            <div>
+              <h3 class="text-base font-medium text-gray-900">
+                {{ $t('settings.mail_servers.title') }}
+              </h3>
+              <p class="mt-1 text-sm text-gray-500">
+                {{ $t('settings.mail_servers.description') }}
+              </p>
+            </div>
+            <BaseButton
+              type="button"
+              variant="secondary"
+              size="sm"
+              :disabled="newCompanyForm.mail_servers.length >= MAIL_SERVER_LIMIT"
+              @click="addMailServer"
+            >
+              <template #left="slotProps">
+                <BaseIcon name="PlusIcon" :class="slotProps.class" />
+              </template>
+              {{ $t('settings.mail_servers.add') }}
+            </BaseButton>
+          </div>
+
+          <div
+            v-if="newCompanyForm.mail_servers.length"
+            class="space-y-4"
+          >
+            <BaseCard
+              v-for="(server, index) in newCompanyForm.mail_servers"
+              :key="server.uid"
+              class="p-4 space-y-4"
+            >
+              <div class="flex items-start justify-between gap-3">
+                <h4 class="text-sm font-medium text-gray-900">
+                  {{
+                    $t('settings.mail_servers.server_label', {
+                      number: index + 1,
+                    })
+                  }}
+                </h4>
+                <BaseButton
+                  v-if="newCompanyForm.mail_servers.length > 1"
+                  type="button"
+                  variant="white"
+                  size="sm"
+                  @click="removeMailServer(index)"
+                >
+                  <template #left="slotProps">
+                    <BaseIcon name="TrashIcon" :class="slotProps.class" />
+                  </template>
+                  {{ $t('general.remove') }}
+                </BaseButton>
+              </div>
+
+              <BaseInputGrid layout="two-column" class="gap-4">
+                <BaseInputGroup
+                  :label="$t('settings.mail_servers.label')"
+                  class="col-span-2"
+                >
+                  <BaseInput v-model.trim="server.label" />
+                </BaseInputGroup>
+
+                <BaseInputGroup :label="$t('settings.mail.host')">
+                  <BaseInput v-model.trim="server.host" />
+                </BaseInputGroup>
+
+                <BaseInputGroup :label="$t('settings.mail.port')">
+                  <BaseInput
+                    v-model.number="server.port"
+                    type="number"
+                    min="1"
+                    max="65535"
+                    placeholder="587"
+                  />
+                </BaseInputGroup>
+
+                <BaseInputGroup :label="$t('settings.mail.username')">
+                  <BaseInput
+                    v-model.trim="server.username"
+                    autocomplete="username"
+                  />
+                </BaseInputGroup>
+
+                <BaseInputGroup :label="$t('settings.mail.password')">
+                  <BaseInput
+                    v-model="server.password"
+                    type="password"
+                    autocomplete="new-password"
+                  />
+                </BaseInputGroup>
+
+                <BaseInputGroup :label="$t('settings.mail.encryption')">
+                  <BaseSelectInput
+                    v-model="server.encryption"
+                    :options="mailEncryptionOptions"
+                    value-prop="id"
+                    label-key="label"
+                    :allow-empty="false"
+                    :searchable="false"
+                  />
+                </BaseInputGroup>
+
+                <BaseInputGroup :label="$t('settings.mail.from_name')">
+                  <BaseInput v-model.trim="server.from_name" />
+                </BaseInputGroup>
+
+                <BaseInputGroup :label="$t('settings.mail.from_mail')">
+                  <BaseInput
+                    v-model.trim="server.from_address"
+                    type="email"
+                    autocomplete="email"
+                  />
+                </BaseInputGroup>
+
+                <div class="col-span-2">
+                  <BaseCheckbox
+                    v-model="server.is_primary"
+                    :label="$t('settings.mail_servers.primary')"
+                    @change="onPrimaryMailServerChange($event, index)"
+                  />
+                </div>
+              </BaseInputGrid>
+            </BaseCard>
+          </div>
+
+          <p v-else class="text-sm text-gray-500">
+            {{ $t('settings.mail_servers.empty') }}
+          </p>
+
+          <p
+            v-if="newCompanyForm.mail_servers.length >= MAIL_SERVER_LIMIT"
+            class="text-xs text-gray-500"
+          >
+            {{
+              $t('settings.mail_servers.limit_reached', {
+                count: MAIL_SERVER_LIMIT,
+              })
+            }}
+          </p>
+        </div>
       </div>
 
       <div class="z-0 flex justify-end p-4 bg-gray-50 border-modal-bg">
@@ -130,7 +274,7 @@
 
 <script setup>
 import { useModalStore } from '@/scripts/stores/modal'
-import { computed, onMounted, ref, reactive } from 'vue'
+import { computed, ref, reactive } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { required, minLength, helpers } from '@vuelidate/validators'
 import { useVuelidate } from '@vuelidate/core'
@@ -144,6 +288,14 @@ const modalStore = useModalStore()
 const globalStore = useGlobalStore()
 
 const { t } = useI18n()
+const MAIL_SERVER_LIMIT = 3
+
+const mailEncryptionOptions = computed(() => [
+  { id: 'tls', label: t('settings.mail.encryption_tls') },
+  { id: 'ssl', label: t('settings.mail.encryption_ssl') },
+  { id: 'none', label: t('settings.mail.encryption_none') },
+])
+
 let isSaving = ref(false)
 let previewLogo = ref(null)
 let isFetchingInitialData = ref(false)
@@ -156,6 +308,7 @@ const newCompanyForm = reactive({
   address: {
     country_id: null,
   },
+  mail_servers: [],
 })
 
 const modalActive = computed(() => {
@@ -214,7 +367,8 @@ async function submitCompanyData() {
 
   isSaving.value = true
   try {
-    const res = await companyStore.addNewCompany(newCompanyForm)
+    const payload = prepareCompanyPayload()
+    const res = await companyStore.addNewCompany(payload)
     if (res.data.data) {
       await companyStore.setSelectedCompany(res.data.data)
       if (companyLogoFileBlob && companyLogoFileBlob.value) {
@@ -245,6 +399,7 @@ function resetNewCompanyForm() {
   newCompanyForm.name = ''
   newCompanyForm.currency = ''
   newCompanyForm.address.country_id = ''
+  newCompanyForm.mail_servers = []
 
   v$.value.$reset()
 }
@@ -256,5 +411,109 @@ function closeCompanyModal() {
     resetNewCompanyForm()
     v$.value.$reset()
   }, 300)
+}
+
+function generateMailServerUid() {
+  return `mail-server-${Math.random().toString(36).slice(2, 10)}`
+}
+
+function createEmptyMailServer() {
+  return {
+    uid: generateMailServerUid(),
+    label: '',
+    driver: 'smtp',
+    host: '',
+    port: null,
+    username: '',
+    password: '',
+    encryption: 'tls',
+    from_name: '',
+    from_address: '',
+    is_primary: newCompanyForm.mail_servers.length === 0,
+  }
+}
+
+function addMailServer() {
+  if (newCompanyForm.mail_servers.length >= MAIL_SERVER_LIMIT) {
+    return
+  }
+
+  newCompanyForm.mail_servers.push(createEmptyMailServer())
+}
+
+function removeMailServer(index) {
+  const [removedServer] = newCompanyForm.mail_servers.splice(index, 1)
+
+  if (removedServer?.is_primary && newCompanyForm.mail_servers.length) {
+    newCompanyForm.mail_servers[0].is_primary = true
+  }
+}
+
+function onPrimaryMailServerChange(value, index) {
+  if (!value) {
+    newCompanyForm.mail_servers[index].is_primary = true
+    return
+  }
+
+  newCompanyForm.mail_servers.forEach((server, serverIndex) => {
+    server.is_primary = serverIndex === index
+  })
+}
+
+function sanitizeMailServersForRequest(servers) {
+  if (!Array.isArray(servers)) {
+    return []
+  }
+
+  return servers
+    .map((server) => {
+      const trimmedHost = server.host ? server.host.trim() : ''
+      const trimmedUsername = server.username ? server.username.trim() : ''
+      const trimmedPassword =
+        typeof server.password === 'string' ? server.password.trim() : ''
+      const trimmedFromName = server.from_name ? server.from_name.trim() : ''
+      const trimmedFromAddress = server.from_address
+        ? server.from_address.trim()
+        : ''
+
+      const hasContent =
+        trimmedHost ||
+        (server.port !== null && server.port !== undefined && server.port !== '') ||
+        trimmedUsername ||
+        trimmedPassword ||
+        trimmedFromName ||
+        trimmedFromAddress
+
+      if (!hasContent) {
+        return null
+      }
+
+      return {
+        label: server.label ? server.label.trim() : null,
+        driver: server.driver || 'smtp',
+        host: trimmedHost,
+        port: server.port,
+        username: trimmedUsername || null,
+        password: trimmedPassword || null,
+        encryption: server.encryption || 'tls',
+        from_name: trimmedFromName || null,
+        from_address: trimmedFromAddress || null,
+        is_primary: Boolean(server.is_primary),
+      }
+    })
+    .filter((server) => server)
+}
+
+function prepareCompanyPayload() {
+  const payload = JSON.parse(JSON.stringify(newCompanyForm))
+  const sanitizedServers = sanitizeMailServersForRequest(payload.mail_servers)
+
+  if (sanitizedServers.length) {
+    payload.mail_servers = sanitizedServers
+  } else {
+    delete payload.mail_servers
+  }
+
+  return payload
 }
 </script>

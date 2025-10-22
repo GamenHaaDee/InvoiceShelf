@@ -909,6 +909,16 @@
       "encryption": "郵件加密",
       "mail_config_desc": "下列可以設定外送郵件設置. 你亦可使用第三方的郵件服務如Sendgrid, SES 等."
     },
+    "mail_servers": {
+      "title": "Mail Servers",
+      "description": "Configure company-specific outgoing mail servers.",
+      "add": "Add Mail Server",
+      "primary": "Use as primary server",
+      "label": "Label",
+      "server_label": "Mail Server {number}",
+      "empty": "No mail servers added yet.",
+      "limit_reached": "You can configure up to {count} mail servers for a company."
+    },
     "pdf": {
       "title": "PDF設定",
       "footer_text": "頁尾文字",

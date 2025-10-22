@@ -909,6 +909,16 @@
       "encryption": "E-mail enkripcija",
       "mail_config_desc": "Ispod se nalazi forma za podešavanje E-mail drajvera za slanje pošte iz aplikacije. Takođe možete podesiti provajdere treće strane kao Sendgrid, SES itd."
     },
+    "mail_servers": {
+      "title": "Mail Servers",
+      "description": "Configure company-specific outgoing mail servers.",
+      "add": "Add Mail Server",
+      "primary": "Use as primary server",
+      "label": "Label",
+      "server_label": "Mail Server {number}",
+      "empty": "No mail servers added yet.",
+      "limit_reached": "You can configure up to {count} mail servers for a company."
+    },
     "pdf": {
       "title": "PDF Podešavanje",
       "footer_text": "Tekstualno zaglavlje na dnu strane",

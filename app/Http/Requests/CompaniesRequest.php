@@ -57,6 +57,58 @@ class CompaniesRequest extends FormRequest
             'address.fax' => [
                 'nullable',
             ],
+            'mail_servers' => [
+                'nullable',
+                'array',
+                'max:3',
+            ],
+            'mail_servers.*.label' => [
+                'nullable',
+                'string',
+                'max:255',
+            ],
+            'mail_servers.*.driver' => [
+                'nullable',
+                Rule::in(['smtp']),
+            ],
+            'mail_servers.*.host' => [
+                'required',
+                'string',
+                'max:255',
+            ],
+            'mail_servers.*.port' => [
+                'required',
+                'integer',
+                'between:1,65535',
+            ],
+            'mail_servers.*.username' => [
+                'nullable',
+                'string',
+                'max:255',
+            ],
+            'mail_servers.*.password' => [
+                'nullable',
+                'string',
+                'max:255',
+            ],
+            'mail_servers.*.encryption' => [
+                'nullable',
+                Rule::in(['none', 'ssl', 'tls']),
+            ],
+            'mail_servers.*.from_name' => [
+                'nullable',
+                'string',
+                'max:255',
+            ],
+            'mail_servers.*.from_address' => [
+                'nullable',
+                'email',
+                'max:255',
+            ],
+            'mail_servers.*.is_primary' => [
+                'nullable',
+                'boolean',
+            ],
         ];
     }
 

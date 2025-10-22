@@ -909,6 +909,16 @@
       "encryption": "Κρυπτογράφηση Email",
       "mail_config_desc": "Παρακάτω είναι η φόρμα για τη ρύθμιση παραμέτρων του προγράμματος οδήγησης ηλεκτρονικού ταχυδρομείου για την αποστολή μηνυμάτων ηλεκτρονικού ταχυδρομείου από την εφαρμογή. Μπορείτε επίσης να ρυθμίσετε τις παραμέτρους τρίτων παρόχων όπως το Sendgrid, το SES κλπ."
     },
+    "mail_servers": {
+      "title": "Mail Servers",
+      "description": "Configure company-specific outgoing mail servers.",
+      "add": "Add Mail Server",
+      "primary": "Use as primary server",
+      "label": "Label",
+      "server_label": "Mail Server {number}",
+      "empty": "No mail servers added yet.",
+      "limit_reached": "You can configure up to {count} mail servers for a company."
+    },
     "pdf": {
       "title": "Ρυθμίσεις PDF",
       "footer_text": "Κείμενο Υποσέλιδου",
