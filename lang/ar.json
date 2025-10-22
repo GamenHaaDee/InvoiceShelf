@@ -909,6 +909,16 @@
       "encryption": "صيغة ا لتشفير",
       "mail_config_desc": "أدناه هو نموذج لتكوين برنامج تشغيل البريد الإلكتروني لإرسال رسائل البريد الإلكتروني من التطبيق. يمكنك أيضًا تهيئة موفري الجهات الخارجية مثل Sendgrid و SES إلخ."
     },
+    "mail_servers": {
+      "title": "Mail Servers",
+      "description": "Configure company-specific outgoing mail servers.",
+      "add": "Add Mail Server",
+      "primary": "Use as primary server",
+      "label": "Label",
+      "server_label": "Mail Server {number}",
+      "empty": "No mail servers added yet.",
+      "limit_reached": "You can configure up to {count} mail servers for a company."
+    },
     "pdf": {
       "title": "PDF إعدادات",
       "footer_text": "نص التذييل",

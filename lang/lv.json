@@ -909,6 +909,16 @@
       "encryption": "E-pasta šifrēšana",
       "mail_config_desc": "Zemāk ir e-pasta konfigurēšanas forma. Jūs varat konfigurēt arī trešās puses servisus kā Sendgrid, SES u.c."
     },
+    "mail_servers": {
+      "title": "Mail Servers",
+      "description": "Configure company-specific outgoing mail servers.",
+      "add": "Add Mail Server",
+      "primary": "Use as primary server",
+      "label": "Label",
+      "server_label": "Mail Server {number}",
+      "empty": "No mail servers added yet.",
+      "limit_reached": "You can configure up to {count} mail servers for a company."
+    },
     "pdf": {
       "title": "PDF uzstādījumi",
       "footer_text": "Kājenes teksts",

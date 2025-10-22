@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use App\Models\CompanyMailServer;
 use Silber\Bouncer\BouncerFacade;
 use Silber\Bouncer\Database\Role;
 use Spatie\MediaLibrary\HasMedia;
@@ -150,6 +151,62 @@ class Company extends Model implements HasMedia
     public function address(): HasOne
     {
         return $this->hasOne(Address::class);
+    }
+
+    public function mailServers(): HasMany
+    {
+        return $this->hasMany(CompanyMailServer::class);
+    }
+
+    public function syncMailServers(array $mailServers): void
+    {
+        $sanitized = collect($mailServers)
+            ->map(function (array $server) {
+                $label = isset($server['label']) ? trim((string) $server['label']) : null;
+                $host = isset($server['host']) ? trim((string) $server['host']) : null;
+                $username = isset($server['username']) ? trim((string) $server['username']) : null;
+                $fromName = isset($server['from_name']) ? trim((string) $server['from_name']) : null;
+                $fromAddress = isset($server['from_address']) ? trim((string) $server['from_address']) : null;
+
+                return [
+                    'label' => $label !== '' ? $label : null,
+                    'driver' => isset($server['driver']) && $server['driver'] !== '' ? $server['driver'] : 'smtp',
+                    'host' => $host !== '' ? $host : null,
+                    'port' => array_key_exists('port', $server) ? $server['port'] : null,
+                    'username' => $username !== '' ? $username : null,
+                    'password' => isset($server['password']) && $server['password'] !== '' ? $server['password'] : null,
+                    'encryption' => isset($server['encryption']) && $server['encryption'] !== '' ? $server['encryption'] : null,
+                    'from_name' => $fromName !== '' ? $fromName : null,
+                    'from_address' => $fromAddress !== '' ? $fromAddress : null,
+                    'is_primary' => ! empty($server['is_primary']),
+                ];
+            })
+            ->filter(function (array $server) {
+                return ! empty($server['host']) && ! empty($server['port']);
+            })
+            ->values();
+
+        if ($sanitized->isEmpty()) {
+            return;
+        }
+
+        $primaryIndex = $sanitized->search(function (array $server) {
+            return $server['is_primary'] === true;
+        });
+
+        if ($primaryIndex === false) {
+            $primaryIndex = 0;
+        }
+
+        $sanitized = $sanitized->map(function (array $server, int $index) use ($primaryIndex) {
+            $server['is_primary'] = $index === $primaryIndex;
+            $server['port'] = (int) $server['port'];
+
+            return $server;
+        });
+
+        $this->mailServers()->delete();
+        $this->mailServers()->createMany($sanitized->toArray());
     }
 
     public function users(): BelongsToMany

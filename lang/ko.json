@@ -638,6 +638,16 @@
       "encryption": "메일 암호화",
       "mail_config_desc": "다음은 앱에서 이메일을 보내기위한 이메일 드라이버 구성 양식입니다. Sendgrid, SES 등과 같은 타사 공급자를 구성 할 수도 있습니다."
     },
+    "mail_servers": {
+      "title": "Mail Servers",
+      "description": "Configure company-specific outgoing mail servers.",
+      "add": "Add Mail Server",
+      "primary": "Use as primary server",
+      "label": "Label",
+      "server_label": "Mail Server {number}",
+      "empty": "No mail servers added yet.",
+      "limit_reached": "You can configure up to {count} mail servers for a company."
+    },
     "pdf": {
       "title": "PDF 설정",
       "footer_text": "바닥 글 텍스트",

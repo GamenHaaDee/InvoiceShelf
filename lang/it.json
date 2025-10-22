@@ -909,6 +909,16 @@
       "encryption": "Tipo di cifratura Mail",
       "mail_config_desc": "Di seguito è riportato il modulo per Configurare il driver di posta elettronica per l'invio di e-mail dall'app. È anche possibile configurare fornitori di terze parti come Sendgrid, SES ecc."
     },
+    "mail_servers": {
+      "title": "Mail Servers",
+      "description": "Configure company-specific outgoing mail servers.",
+      "add": "Add Mail Server",
+      "primary": "Use as primary server",
+      "label": "Label",
+      "server_label": "Mail Server {number}",
+      "empty": "No mail servers added yet.",
+      "limit_reached": "You can configure up to {count} mail servers for a company."
+    },
     "pdf": {
       "title": "Configurazione PDF",
       "footer_text": "Testo del piè di pagina",

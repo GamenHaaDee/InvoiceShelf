@@ -909,6 +909,16 @@
       "encryption": "Szyfrowanie poczty",
       "mail_config_desc": "Poniżej znajduje się formularz konfiguracji sterownika poczty e-mail do wysyłania wiadomości e-mail z aplikacji. Możesz również skonfigurować zewnętrznych dostawców takich jak Sendgrid, SES itp."
     },
+    "mail_servers": {
+      "title": "Mail Servers",
+      "description": "Configure company-specific outgoing mail servers.",
+      "add": "Add Mail Server",
+      "primary": "Use as primary server",
+      "label": "Label",
+      "server_label": "Mail Server {number}",
+      "empty": "No mail servers added yet.",
+      "limit_reached": "You can configure up to {count} mail servers for a company."
+    },
     "pdf": {
       "title": "Ustawienia PDF",
       "footer_text": "Teks stopki",

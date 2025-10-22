@@ -909,6 +909,16 @@
       "encryption": "การเข้ารหัสจดหมาย",
       "mail_config_desc": "ด้านล่างเป็นรูปแบบสำหรับการกำหนดค่าไดรเวอร์อีเมลสำหรับการส่งอีเมลจาก appนอกจากนี้คุณยังสามารถกำหนดค่าผู้ให้บริการของบุคคลที่สามเช่น Sendgrid, SES ฯลฯ"
     },
+    "mail_servers": {
+      "title": "Mail Servers",
+      "description": "Configure company-specific outgoing mail servers.",
+      "add": "Add Mail Server",
+      "primary": "Use as primary server",
+      "label": "Label",
+      "server_label": "Mail Server {number}",
+      "empty": "No mail servers added yet.",
+      "limit_reached": "You can configure up to {count} mail servers for a company."
+    },
     "pdf": {
       "title": "การตั้งค่า PDF",
       "footer_text": "ข้อความท้ายกระดาษ",

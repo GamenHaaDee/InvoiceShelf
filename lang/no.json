@@ -909,6 +909,16 @@
       "encryption": "Mail Encryption",
       "mail_config_desc": "Under er et skjema for konfigurasjon av e-post drivere for utsending av e-post fra appen. Du kan også konfigurere tredjepartsleverandør som Sendgrid, SES osv."
     },
+    "mail_servers": {
+      "title": "Mail Servers",
+      "description": "Configure company-specific outgoing mail servers.",
+      "add": "Add Mail Server",
+      "primary": "Use as primary server",
+      "label": "Label",
+      "server_label": "Mail Server {number}",
+      "empty": "No mail servers added yet.",
+      "limit_reached": "You can configure up to {count} mail servers for a company."
+    },
     "pdf": {
       "title": "PDF Setting",
       "footer_text": "Footer Text",

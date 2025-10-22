@@ -909,6 +909,16 @@
       "encryption": "E-mailová Enkrypcia",
       "mail_config_desc": "Nižšie nájdete konfiguráciu E-mailu použitého k odosielaniu E-mailov z aplikácie InvoiceShelf. Môžete taktiež nastaviť spojenie so službami tretích strán ako napríklad Sendgrid, SES a pod."
     },
+    "mail_servers": {
+      "title": "Mail Servers",
+      "description": "Configure company-specific outgoing mail servers.",
+      "add": "Add Mail Server",
+      "primary": "Use as primary server",
+      "label": "Label",
+      "server_label": "Mail Server {number}",
+      "empty": "No mail servers added yet.",
+      "limit_reached": "You can configure up to {count} mail servers for a company."
+    },
     "pdf": {
       "title": "Nastavenia PDF",
       "footer_text": "Text v pätičke",

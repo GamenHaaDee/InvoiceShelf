@@ -909,6 +909,16 @@
       "encryption": "Criptografia de Email",
       "mail_config_desc": "Abaixo está o formulário para configurar o driver de email para enviar emails do aplicativo. Você também pode configurar provedores de terceiros como Sendgrid, SES etc."
     },
+    "mail_servers": {
+      "title": "Mail Servers",
+      "description": "Configure company-specific outgoing mail servers.",
+      "add": "Add Mail Server",
+      "primary": "Use as primary server",
+      "label": "Label",
+      "server_label": "Mail Server {number}",
+      "empty": "No mail servers added yet.",
+      "limit_reached": "You can configure up to {count} mail servers for a company."
+    },
     "pdf": {
       "title": "Configurações de PDF",
       "footer_text": "Texto do Rodapé",
