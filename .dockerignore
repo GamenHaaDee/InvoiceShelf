@@ -1,14 +1,22 @@
-.idea/
-.git/
+# Git & editor artifacts
+.git
+.gitignore
+.github
+.idea
+.vscode
+*.swp
+*.swo
 
-.github/
-docker/
-!docker/production/entrypoint.d
-!docker/production/inject.sh
+# Node & PHP build artifacts
+node_modules
+vendor
 
-node_modules/
+# Local environment files
+.env
+.env.*
 
-database/*.sqlite
+# Runtime caches/logs that should be mounted as volumes instead
+bootstrap/cache/*.php
 storage/app/*
 !storage/app/templates*
 storage/fonts/*
@@ -17,29 +25,13 @@ storage/framework/sessions/*
 storage/framework/views/*
 storage/logs/*
 
-tests/
-vendor/
+# Database dumps and local state
+database/*.sqlite
+tests
 
-.dockerignore
-.devenvconfig
-.editorconfig
-.env
-.env.testing
-.eslintrc.mjs
-.gitattributes
-.gitignore
-.prettierrc.json
+# Development-only tooling
 devenv
+DockerDesktop
 
-CODE_OF_CONDUCT.md
-Dockerfile
-*.Dockerfile
-LICENSE
-Makefile
-SECURITY.md
-_ide_helper.php
-crowdin.yml
-invoiceshelf.code-workspace
-package-lock.json
-phpunit.xml
-readme.md
+# Existing development docker setups
+docker/development
