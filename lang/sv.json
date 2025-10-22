@@ -859,7 +859,8 @@
       "notes": "Anteckningar",
       "exchange_rate": "Växelkurser",
       "address_information": "Adressinformation",
-      "pdf_generation": "PDF Generation"
+      "pdf_generation": "PDF Generation",
+      "branding": "Branding"
     },
     "address_information": {
       "section_description": "  Du kan uppdatera din adressinformation genom att använda formuläret nedan."
@@ -908,6 +909,33 @@
       "from_mail": "Från adress",
       "encryption": "Kryptering",
       "mail_config_desc": "Nedan formulär används för att konfigurera vilket sätt som ska användar för att skicka epost. Du kan också använda tredjepartsleverantör som Sendgrid, SES o.s.v."
+    },
+    "mail_servers": {
+      "title": "Mail Servers",
+      "description": "Configure company-specific outgoing mail servers.",
+      "add": "Add Mail Server",
+      "primary": "Use as primary server",
+      "label": "Label",
+      "server_label": "Mail Server {number}",
+      "empty": "No mail servers added yet.",
+      "limit_reached": "You can configure up to {count} mail servers for a company."
+    },
+    "branding": {
+      "title": "Branding",
+      "description": "Customize the colours used across the admin portal for this company.",
+      "primary_color_label": "Primary accent colour",
+      "primary_color_help": "Used for buttons, links, and gradients.",
+      "sidebar_background_label": "Sidebar background",
+      "sidebar_background_help": "Adjusts the navigation sidebar surface colour.",
+      "sidebar_text_label": "Sidebar text",
+      "sidebar_text_help": "Controls the base text and icon colour in the sidebar.",
+      "preview_title": "Preview",
+      "preview_description": "See how the selected colours work together before saving.",
+      "preview_header_caption": "Header gradient preview",
+      "preview_sidebar_caption": "Sidebar navigation preview",
+      "preview_active_link": "Active item",
+      "preview_inactive_link": "Inactive item",
+      "updated": "Branding settings updated successfully."
     },
     "pdf": {
       "title": "PDF-inställningar",
@@ -1580,7 +1608,8 @@
     "at_least_one_ability": "Välj minst en rättighet.",
     "valid_driver_key": "Please enter a valid {driver} key.",
     "valid_exchange_rate": "Vänligen ange en giltig växelkurs.",
-    "company_name_not_same": "Företagsnamnet måste matcha med angivet namn."
+    "company_name_not_same": "Företagsnamnet måste matcha med angivet namn.",
+    "hex_color": "Please enter a valid hex colour (e.g. #4A3DFF)."
   },
   "errors": {
     "starter_plan": "Denna funktion är tillgänglig på Starter plan och framåt!",

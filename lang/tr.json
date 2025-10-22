@@ -859,7 +859,8 @@
       "notes": "Notlar",
       "exchange_rate": "Exchange Rate",
       "address_information": "Address Information",
-      "pdf_generation": "PDF Generation"
+      "pdf_generation": "PDF Generation",
+      "branding": "Branding"
     },
     "address_information": {
       "section_description": "  You can update Your Address information using form below."
@@ -908,6 +909,33 @@
       "from_mail": "Gönderen Posta Adresi",
       "encryption": "Mail Şifrelemesi",
       "mail_config_desc": "Uygulamadan E-posta göndermek için E-posta sürücüsünü yapılandırma formu aşağıdadır. Sendgrid, SES vb. gibi üçüncü taraf sağlayıcıları da yapılandırabilirsiniz."
+    },
+    "mail_servers": {
+      "title": "Mail Servers",
+      "description": "Configure company-specific outgoing mail servers.",
+      "add": "Add Mail Server",
+      "primary": "Use as primary server",
+      "label": "Label",
+      "server_label": "Mail Server {number}",
+      "empty": "No mail servers added yet.",
+      "limit_reached": "You can configure up to {count} mail servers for a company."
+    },
+    "branding": {
+      "title": "Branding",
+      "description": "Customize the colours used across the admin portal for this company.",
+      "primary_color_label": "Primary accent colour",
+      "primary_color_help": "Used for buttons, links, and gradients.",
+      "sidebar_background_label": "Sidebar background",
+      "sidebar_background_help": "Adjusts the navigation sidebar surface colour.",
+      "sidebar_text_label": "Sidebar text",
+      "sidebar_text_help": "Controls the base text and icon colour in the sidebar.",
+      "preview_title": "Preview",
+      "preview_description": "See how the selected colours work together before saving.",
+      "preview_header_caption": "Header gradient preview",
+      "preview_sidebar_caption": "Sidebar navigation preview",
+      "preview_active_link": "Active item",
+      "preview_inactive_link": "Inactive item",
+      "updated": "Branding settings updated successfully."
     },
     "pdf": {
       "title": "PDF Ayarları",
@@ -1580,7 +1608,8 @@
     "at_least_one_ability": "Lütfen en az bir izin seçin.",
     "valid_driver_key": "Lütfen geçerli bir {driver} anahtarı girin.",
     "valid_exchange_rate": "Lütfen geçerli bir döviz kuru girin.",
-    "company_name_not_same": "Şirket adı verilen adla eşleşmelidir."
+    "company_name_not_same": "Şirket adı verilen adla eşleşmelidir.",
+    "hex_color": "Please enter a valid hex colour (e.g. #4A3DFF)."
   },
   "errors": {
     "starter_plan": "Bu özellik Başlangıç planı ve sonrasında kullanılabilir!",

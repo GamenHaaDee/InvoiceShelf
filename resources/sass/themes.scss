@@ -10,4 +10,53 @@
     --color-primary-800: 27, 3, 211;
     --color-primary-900: 25, 5, 173;
     --color-primary-950: 9, 0, 118;
+    --brand-sidebar-background-color: 255, 255, 255;
+    --brand-sidebar-text-color: 17, 24, 39;
+    --brand-sidebar-hover-background-color: 243, 244, 246;
+    --brand-sidebar-active-background-color: 238, 242, 255;
+    --brand-sidebar-border-color: 229, 231, 235;
+}
+
+.sidebar-surface {
+    background-color: rgb(var(--brand-sidebar-background-color));
+    color: rgb(var(--brand-sidebar-text-color));
+}
+
+.sidebar-surface a {
+    color: inherit;
+}
+
+.sidebar-surface .sidebar-link {
+    color: inherit;
+    transition: background-color 150ms ease, color 150ms ease;
+}
+
+.sidebar-surface .sidebar-link:hover {
+    background-color: rgb(var(--brand-sidebar-hover-background-color));
+}
+
+.sidebar-surface .sidebar-link-active {
+    background-color: rgb(var(--brand-sidebar-active-background-color));
+    color: rgba(var(--color-primary-600), 1);
+}
+
+.sidebar-surface .sidebar-link-icon {
+    color: rgba(var(--brand-sidebar-text-color), 0.6);
+    transition: color 150ms ease, transform 150ms ease;
+}
+
+.sidebar-surface .sidebar-link:hover .sidebar-link-icon {
+    color: rgba(var(--brand-sidebar-text-color), 0.85);
+}
+
+.sidebar-surface .sidebar-link-active .sidebar-link-icon {
+    color: rgba(var(--color-primary-500), 1);
+}
+
+.sidebar-border {
+    border-color: rgb(var(--brand-sidebar-border-color));
+}
+
+.sidebar-divider {
+    border-color: rgb(var(--brand-sidebar-border-color));
 }

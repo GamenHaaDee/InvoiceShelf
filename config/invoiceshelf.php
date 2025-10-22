@@ -161,6 +161,16 @@ return [
             'model' => '',
         ],
         [
+            'title' => 'settings.menu_title.branding',
+            'group' => '',
+            'name' => 'Branding',
+            'link' => '/admin/settings/branding',
+            'icon' => 'PaintBrushIcon',
+            'owner_only' => true,
+            'ability' => '',
+            'model' => '',
+        ],
+        [
             'title' => 'settings.menu_title.customization',
             'group' => '',
             'name' => 'Customization',

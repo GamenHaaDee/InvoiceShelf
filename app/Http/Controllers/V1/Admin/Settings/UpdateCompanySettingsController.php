@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateSettingsRequest;
 use App\Models\Company;
 use App\Models\CompanySetting;
 use Illuminate\Support\Arr;
+use App\Support\Branding;
 
 class UpdateCompanySettingsController extends Controller
 {
@@ -32,6 +33,12 @@ class UpdateCompanySettingsController extends Controller
                 'success' => false,
                 'message' => 'Cannot update company currency after transactions are created.',
             ]);
+        }
+
+        foreach (Branding::defaults() as $setting => $default) {
+            if (Arr::exists($data, $setting)) {
+                $data[$setting] = Branding::sanitizeHexColor($data[$setting], $default);
+            }
         }
 
         CompanySetting::setSettings($data, $request->header('company'));

@@ -27,7 +27,7 @@
         leave-from="translate-x-0"
         leave-to="-translate-x-full"
       >
-        <div class="relative flex flex-col flex-1 w-full max-w-xs bg-white">
+        <div class="relative flex flex-col flex-1 w-full max-w-xs sidebar-surface">
           <TransitionChild
             as="template"
             enter="ease-in-out duration-300"
@@ -81,21 +81,16 @@
                 :key="item.name"
                 :to="item.link"
                 :class="[
+                  'sidebar-link cursor-pointer px-0 pl-4 py-3 border-l-4 border-solid text-sm not-italic font-medium flex items-center group transition-colors duration-150',
                   hasActiveUrl(item.link)
-                    ? 'text-primary-500 border-primary-500 bg-gray-100 '
-                    : 'text-black',
-                  'cursor-pointer px-0 pl-4 py-3 border-transparent flex items-center border-l-4 border-solid text-sm not-italic font-medium',
+                    ? 'sidebar-link-active border-primary-500'
+                    : 'border-transparent',
                 ]"
                 @click="globalStore.setSidebarVisibility(false)"
               >
                 <BaseIcon
                   :name="item.icon"
-                  :class="[
-                    hasActiveUrl(item.link)
-                      ? 'text-primary-500 '
-                      : 'text-gray-400',
-                    'mr-4 shrink-0 h-5 w-5',
-                  ]"
+                  class="sidebar-link-icon mr-4 shrink-0 h-5 w-5 transition-transform duration-150 group-hover:translate-x-0.5"
                   @click="globalStore.setSidebarVisibility(false)"
                 />
                 {{ $t(item.title) }}
@@ -118,8 +113,8 @@
       h-screen
       pb-32
       overflow-y-auto
-      bg-white
-      border-r border-gray-200 border-solid
+      sidebar-surface
+      border-r sidebar-border border-solid
       xl:w-64
       md:fixed md:flex md:flex-col md:inset-y-0
       pt-16
@@ -135,20 +130,15 @@
         :key="item"
         :to="item.link"
         :class="[
+          'sidebar-link cursor-pointer px-0 pl-6 py-3 group flex items-center border-l-4 border-solid text-sm not-italic font-medium transition-colors duration-150',
           hasActiveUrl(item.link)
-            ? 'text-primary-500 border-primary-500 bg-gray-100 '
-            : 'text-black',
-          'cursor-pointer px-0 pl-6 hover:bg-gray-50 py-3 group flex items-center border-l-4 border-solid text-sm not-italic font-medium',
+            ? 'sidebar-link-active border-primary-500'
+            : 'border-transparent',
         ]"
       >
         <BaseIcon
           :name="item.icon"
-          :class="[
-            hasActiveUrl(item.link)
-              ? 'text-primary-500 group-hover:text-primary-500 '
-              : 'text-gray-400 group-hover:text-black',
-            'mr-4 shrink-0 h-5 w-5 ',
-          ]"
+          class="sidebar-link-icon mr-4 shrink-0 h-5 w-5 transition-transform duration-150 group-hover:translate-x-0.5"
         />
 
         {{ $t(item.title) }}

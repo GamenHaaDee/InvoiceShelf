@@ -859,7 +859,8 @@
       "notes": "ノート",
       "exchange_rate": "為替レート",
       "address_information": "住所情報",
-      "pdf_generation": "PDF Generation"
+      "pdf_generation": "PDF Generation",
+      "branding": "Branding"
     },
     "address_information": {
       "section_description": "  以下のフォームを使用して、住所情報を更新できます。"
@@ -908,6 +909,33 @@
       "from_mail": "差出人メールアドレス",
       "encryption": "メール暗号化",
       "mail_config_desc": "以下は、アプリからメールを送信するためのメール ドライバーを構成するためのフォームです。Sendgrid、SES などのサードパーティ プロバイダーを構成することもできます。"
+    },
+    "mail_servers": {
+      "title": "Mail Servers",
+      "description": "Configure company-specific outgoing mail servers.",
+      "add": "Add Mail Server",
+      "primary": "Use as primary server",
+      "label": "Label",
+      "server_label": "Mail Server {number}",
+      "empty": "No mail servers added yet.",
+      "limit_reached": "You can configure up to {count} mail servers for a company."
+    },
+    "branding": {
+      "title": "Branding",
+      "description": "Customize the colours used across the admin portal for this company.",
+      "primary_color_label": "Primary accent colour",
+      "primary_color_help": "Used for buttons, links, and gradients.",
+      "sidebar_background_label": "Sidebar background",
+      "sidebar_background_help": "Adjusts the navigation sidebar surface colour.",
+      "sidebar_text_label": "Sidebar text",
+      "sidebar_text_help": "Controls the base text and icon colour in the sidebar.",
+      "preview_title": "Preview",
+      "preview_description": "See how the selected colours work together before saving.",
+      "preview_header_caption": "Header gradient preview",
+      "preview_sidebar_caption": "Sidebar navigation preview",
+      "preview_active_link": "Active item",
+      "preview_inactive_link": "Inactive item",
+      "updated": "Branding settings updated successfully."
     },
     "pdf": {
       "title": "PDFの設定",
@@ -1580,7 +1608,8 @@
     "at_least_one_ability": "少なくとも1つの権限を選択してください。",
     "valid_driver_key": "有効な{driver}キーを入力してください。",
     "valid_exchange_rate": "有効な為替レートを入力してください。",
-    "company_name_not_same": "会社名は指定された名前と一致する必要があります。"
+    "company_name_not_same": "会社名は指定された名前と一致する必要があります。",
+    "hex_color": "Please enter a valid hex colour (e.g. #4A3DFF)."
   },
   "errors": {
     "starter_plan": "この機能はスタータープラン以降で利用できます！",

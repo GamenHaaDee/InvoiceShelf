@@ -3,6 +3,13 @@ import { defineStore } from 'pinia'
 import { useNotificationStore } from '@/scripts/stores/notification'
 import { handleError } from '@/scripts/helpers/error-handling'
 import Ls from '@/scripts/services/ls'
+import { applyBranding } from '@/scripts/admin/utils/branding'
+
+const BRANDING_SETTING_KEYS = [
+  'brand_primary_color',
+  'brand_sidebar_background_color',
+  'brand_sidebar_text_color',
+]
 
 export const useCompanyStore = (useWindow = false) => {
   const defineStoreFunc = useWindow ? window.pinia.defineStore : defineStore
@@ -151,6 +158,15 @@ export const useCompanyStore = (useWindow = false) => {
             .post('/api/v1/company/settings', data)
             .then((response) => {
               Object.assign(this.selectedCompanySettings, data.settings)
+
+              if (
+                data?.settings &&
+                BRANDING_SETTING_KEYS.some((key) =>
+                  Object.prototype.hasOwnProperty.call(data.settings, key)
+                )
+              ) {
+                applyBranding(this.selectedCompanySettings)
+              }
 
               if (message) {
                 const notificationStore = useNotificationStore()

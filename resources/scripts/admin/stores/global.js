@@ -6,6 +6,7 @@ import { useModuleStore } from './module'
 import { useNotificationStore } from '@/scripts/stores/notification'
 import { handleError } from '@/scripts/helpers/error-handling'
 import _ from 'lodash'
+import { applyBranding } from '@/scripts/admin/utils/branding'
 
 export const useGlobalStore = (useWindow = false) => {
   const defineStoreFunc = useWindow ? window.pinia.defineStore : defineStore
@@ -77,6 +78,7 @@ export const useGlobalStore = (useWindow = false) => {
               companyStore.setSelectedCompany(response.data.current_company)
               companyStore.selectedCompanySettings =
                 response.data.current_company_settings
+              applyBranding(response.data.current_company_settings)
               companyStore.selectedCompanyCurrency =
                 response.data.current_company_currency
 
